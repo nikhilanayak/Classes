@@ -8,6 +8,13 @@ Media::Media(char* title, int year){
 	this->year = year;
 }
 
+char* Media::getTitle(){
+	return this->title;
+}
+int Media::getYear(){
+	return this->year;
+}
+
 Media::~Media(){
 	delete title;	
 }

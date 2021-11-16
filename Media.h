@@ -16,6 +16,8 @@ public:
 	int year;
 	Media(char* title, int year);
 	~Media();
+	char* getTitle();
+	int getYear();
 
 };
 

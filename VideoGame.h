@@ -5,9 +5,13 @@
 class VideoGame: public Media{
 public:
 	char* publisher;
-	float rating;
-	VideoGame(char* title, int year, char* publisher, float rating);
+	int rating;
+	VideoGame(char* title, int year, char* publisher, int rating);
 	~VideoGame();
+
+	char* getPublisher();
+	int getRating();
+
 };
 
 #endif

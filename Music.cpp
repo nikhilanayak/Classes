@@ -12,3 +12,16 @@ Music::Music(char* title, int year, char* artist, int duration, int rating): Med
 Music::~Music(){
 	delete this->artist;
 }
+
+
+char* Music::getArtist(){
+	return this->artist;
+}
+
+int Music::getDuration(){
+	return this->duration;
+}
+
+int Music::getRating(){
+	return this->rating;
+}
