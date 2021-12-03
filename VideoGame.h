@@ -11,6 +11,7 @@ public:
 
 	char* getPublisher();
 	int getRating();
+	virtual void print();
 
 };
 

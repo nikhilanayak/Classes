@@ -1,5 +1,6 @@
 #include "VideoGame.h"
 #include <string.h>
+#include <iostream>
 
 VideoGame::VideoGame(char* title, int year, char* publisher, int rating): Media(title, year){
 	this->publisher = new char[strlen(publisher)];
@@ -19,4 +20,13 @@ char* VideoGame::getPublisher(){
 
 int VideoGame::getRating(){
 	return this->rating;
+}
+
+void VideoGame::print(){
+	std::cout << "Video Game: ";
+	std::cout << ", Rating=" << this->getRating();
+	std::cout << ", Title=" << this->getTitle();
+	std::cout << ", Year=" << this->getYear();
+	std::cout << ", Publisher=" << this->getPublisher();
+
 }

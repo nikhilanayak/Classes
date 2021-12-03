@@ -1,5 +1,6 @@
 #include "Media.h"
 #include <string.h>
+#include <iostream>
 
 
 Media::Media(char* title, int year){

@@ -18,7 +18,7 @@ public:
 	~Media();
 	char* getTitle();
 	int getYear();
-
+	virtual void print(){}
 };
 
 #endif
