@@ -5,9 +5,12 @@
 Music::Music(char* title, int year, char* artist, int duration, int rating): Media(title, year){
 	this->artist = 	new char[strlen(artist)];
 	memcpy(this->artist, artist, strlen(artist));
-	
+
+	std::cout << "init duration:" << duration << "\n";
 	this->duration = duration;
+
 	this->rating = rating;
+	this->type = 0;
 }
 
 Music::~Music(){
@@ -29,7 +32,7 @@ int Music::getRating(){
 
 void Music::print(){
 	std::cout << "Music: ";
-	std::cout << ", Duration=" << this->getDuration();
+	std::cout << " Duration=" << this->getDuration();
 	std::cout << ", Rating=" << this->getRating();
 	std::cout << ", Title=" << this->getTitle();
 	std::cout << ", Year=" << this->getYear();

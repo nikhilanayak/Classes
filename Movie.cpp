@@ -8,6 +8,7 @@ Movie::Movie(char* title, int year, char* director, int duration, int rating): M
 
 	this->duration = duration;
 	this->rating = rating;
+	this->type = 2;
 }
 
 char* Movie::getDirector(){
@@ -30,7 +31,7 @@ Movie::~Movie(){
 void Movie::print(){
 	std::cout << "Movie: ";
 	std::cout << "Director=" << this->getDirector();
-	std::cout << ", Duration=" << this->getDuration();
+	std::cout << " Duration=" << this->getDuration();
 	std::cout << ", Rating=" << this->getRating();
 	std::cout << ", Title=" << this->getTitle();
 	std::cout << ", Year=" << this->getYear();

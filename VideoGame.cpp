@@ -7,6 +7,7 @@ VideoGame::VideoGame(char* title, int year, char* publisher, int rating): Media(
 	memcpy(this->publisher, publisher, strlen(publisher));
 
 	this->rating = rating;
+	this->type = 1;
 
 }
 
@@ -24,7 +25,7 @@ int VideoGame::getRating(){
 
 void VideoGame::print(){
 	std::cout << "Video Game: ";
-	std::cout << ", Rating=" << this->getRating();
+	std::cout << " Rating=" << this->getRating();
 	std::cout << ", Title=" << this->getTitle();
 	std::cout << ", Year=" << this->getYear();
 	std::cout << ", Publisher=" << this->getPublisher();

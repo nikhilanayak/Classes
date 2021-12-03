@@ -14,7 +14,7 @@ public:
 	char* getArtist();
 	int getDuration();
 	int getRating();
-	virtual void print();
+	void print();
 };
 
 #endif

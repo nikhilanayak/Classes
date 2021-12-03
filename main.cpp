@@ -17,9 +17,22 @@ T get_type(){ // gets input of a type, ignoring all other types
 }
 
 int main(){
-	std::vector<Media> database;
+	std::vector<Media*> database;
+	//Movie test_movie = Movie("title", 2020, "me", 10, 10);
+	//Movie another = Movie("title2", 1020, "you", 10, 10);
+	//database.push_back(&test_movie);
+	//database.push_back(&another);
 
-	
+
+	//Media* m = database[0];
+	//std::cout << m << "\n";
+	//Music* song = static_cast<Music*>(m);
+	//song->duration = 100;
+	//std::cout << song->getDuration() << "\n";
+	//song->print();
+
+	//exit(0);
+
 	char input[10];
 	while(true){
         	std::cout << "Enter A Command (ADD, DELETE, PRINT, STOP): ";
@@ -36,14 +49,14 @@ int main(){
 			}
 			if(num == 0){ // song
 				std::cout << "Title: ";
-				char title[256];
+				char* title = new char[256];
 				std::cin >> title;
 
 				std::cout << "Year: ";
 				int year = get_type<int>();
 
 				std::cout << "Artist: ";
-				char artist[256];
+				char* artist = new char[256];
 				std::cin >> artist;
 
 				std::cout << "Duration: ";
@@ -52,39 +65,39 @@ int main(){
 				std::cout << "Rating: ";
 				int rating = get_type<int>();
 
-				Music m = Music(title, year, artist, duration, rating);
+				Music* m = new Music(title, year, artist, duration, rating);
 				database.push_back(m);
 
 			}
 			else if(num == 1){ // video game
 				std::cout << "Title: ";
-				char title[256];
+				char* title = new char[256];
 				std::cin >> title;
 
 				std::cout << "Year: ";
 				int year = get_type<int>();
 
 				std::cout << "Publisher: ";
-				char publisher[256];
+				char* publisher = new char[256];
 				std::cin >> publisher;
 
 				std::cout << "Rating: ";
 				int rating = get_type<int>();
 				
-				VideoGame v = VideoGame(title, year, publisher, rating);
+				VideoGame* v = new VideoGame(title, year, publisher, rating);
 				database.push_back(v);
 			}
 			else if(num == 2){// movie
 				// Movie(char* title, int year, char* director, int duration, int rating);
 				std::cout << "Title: ";
-				char title[256];
+				char* title = new char[256];
 				std::cin >> title;
 
 				std::cout << "Year: ";
 				int year = get_type<int>();
 				
 				std::cout << "Director: ";
-				char director[256];
+				char* director = new char[256];
 				std::cin >> director;
 
 				std::cout << "Duration: ";
@@ -93,7 +106,7 @@ int main(){
 				std::cout << "Rating: ";
 				int rating = get_type<int>();
 
-				Movie m = Movie(title, year, director, duration, rating);
+				Movie* m = new Movie(title, year, director, duration, rating);
 				database.push_back(m);
 			}
 		}
@@ -102,8 +115,17 @@ int main(){
 		}
 		else if(strcmp(input, "PRINT") == 0){
 			for(int i = 0; i < database.size(); i++){
-				Media* m = &database[i];
-				m->print();
+				Media* m = database[i];
+				std::cout << m << "\n";
+				Music* song = static_cast<Music*>(m);
+				VideoGame* game = static_cast<VideoGame*>(m);
+				Movie* movie = static_cast<Movie*>(m);
+
+				if(m->type == 0) song->print();
+				if(m->type == 1) game->print();
+				if(m->type == 2) movie->print();
+				//song->print();
+				std::cout << "\n";
 				//std::cout << i << "\n";
 			}
 		}

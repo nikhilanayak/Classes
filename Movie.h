@@ -13,7 +13,7 @@ public:
 	char* getDirector();
 	int getDuration();
 	int getRating();
-	virtual void print();
+	void print();
 };
 
 #endif
