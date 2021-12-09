@@ -6,7 +6,6 @@ Music::Music(char* title, int year, char* artist, int duration, int rating): Med
 	this->artist = 	new char[strlen(artist)];
 	memcpy(this->artist, artist, strlen(artist));
 
-	std::cout << "init duration:" << duration << "\n";
 	this->duration = duration;
 
 	this->rating = rating;

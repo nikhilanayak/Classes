@@ -31,7 +31,7 @@ Movie::~Movie(){
 void Movie::print(){
 	std::cout << "Movie: ";
 	std::cout << "Director=" << this->getDirector();
-	std::cout << " Duration=" << this->getDuration();
+	std::cout << ", Duration=" << this->getDuration();
 	std::cout << ", Rating=" << this->getRating();
 	std::cout << ", Title=" << this->getTitle();
 	std::cout << ", Year=" << this->getYear();

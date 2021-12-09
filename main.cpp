@@ -13,6 +13,7 @@ T get_type(){ // gets input of a type, ignoring all other types
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // clear the whole buffer
                 std::cout << "Invalid input, please try again: ";
         }
+	std::cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
         return input;
 }
 
@@ -35,7 +36,7 @@ int main(){
 
 	char input[10];
 	while(true){
-        	std::cout << "Enter A Command (ADD, DELETE, PRINT, STOP): ";
+        	std::cout << "Enter A Command (ADD, DELETE, PRINT, STOP, SEARCH): ";
         	std::cin >> input;
 
 		// parse input
@@ -50,14 +51,14 @@ int main(){
 			if(num == 0){ // song
 				std::cout << "Title: ";
 				char* title = new char[256];
-				std::cin >> title;
+				std::cin.getline(title, 256, '\n');
 
 				std::cout << "Year: ";
 				int year = get_type<int>();
 
 				std::cout << "Artist: ";
 				char* artist = new char[256];
-				std::cin >> artist;
+				std::cin.getline(artist, 256, '\n');
 
 				std::cout << "Duration: ";
 				int duration = get_type<int>();
@@ -72,14 +73,14 @@ int main(){
 			else if(num == 1){ // video game
 				std::cout << "Title: ";
 				char* title = new char[256];
-				std::cin >> title;
+				std::cin.getline(title, 256, '\n');
 
 				std::cout << "Year: ";
 				int year = get_type<int>();
 
 				std::cout << "Publisher: ";
 				char* publisher = new char[256];
-				std::cin >> publisher;
+				std::cin.getline(publisher, 256, '\n');
 
 				std::cout << "Rating: ";
 				int rating = get_type<int>();
@@ -91,14 +92,14 @@ int main(){
 				// Movie(char* title, int year, char* director, int duration, int rating);
 				std::cout << "Title: ";
 				char* title = new char[256];
-				std::cin >> title;
+				std::cin.getline(title, 256, '\n');
 
 				std::cout << "Year: ";
 				int year = get_type<int>();
 				
 				std::cout << "Director: ";
 				char* director = new char[256];
-				std::cin >> director;
+				std::cin.getline(director, 256, '\n');
 
 				std::cout << "Duration: ";
 				int duration = get_type<int>();
@@ -108,10 +109,86 @@ int main(){
 
 				Movie* m = new Movie(title, year, director, duration, rating);
 				database.push_back(m);
+
 			}
 		}
-		else if(strcmp(input, "DELETE") == 0){
 
+		else if(strcmp(input, "SEARCH") == 0){
+			int by = -1;
+			while(by != 0 && by != 1){
+				std::cout << "By title (0) or year(1)? : ";
+				by = get_type<int>();
+			}
+
+
+			if(by == 0){ // title
+				std::cout << "Title: ";
+				char title[256];
+				std::cin.getline(title, 256, '\n');
+				for(int i = 0; i < database.size(); i++){
+					Media* m = database[i];
+					if(strcmp(m->getTitle(), title) == 0){
+						Music* song = static_cast<Music*>(m);
+						VideoGame* game = static_cast<VideoGame*>(m);
+						Movie* movie = static_cast<Movie*>(m);
+
+						if(m->type == 0) song->print();
+						if(m->type == 1) game->print();
+						if(m->type == 2) movie->print();
+						std::cout << "\n";
+					}
+				}
+			}
+			else if(by == 1){ // year
+				std::cout << "Year: ";
+				int year = get_type<int>();
+				for(int i = 0; i < database.size(); i++){
+					Media* m = database[i];
+					if(m->getYear() == year){
+						Music* song = static_cast<Music*>(m);
+						VideoGame* game = static_cast<VideoGame*>(m);
+						Movie* movie = static_cast<Movie*>(m);
+
+						if(m->type == 0) song->print();
+						if(m->type == 1) game->print();
+						if(m->type == 2) movie->print();
+						std::cout  << "\n";
+					}
+				}
+			}
+		}
+
+		else if(strcmp(input, "DELETE") == 0){
+			int by = -1;
+			while(by != 0 && by != 1){
+				std::cout << "By title (0) or year(1)? : ";
+				by = get_type<int>();
+			}
+
+
+			if(by == 0){ // title
+				std::cout << "Title: ";
+				char title[256];
+				std::cin.getline(title, 256, '\n');
+				for(int i = 0; i < database.size(); i++){
+					Media* m = database[i];
+					if(strcmp(m->getTitle(), title) == 0){
+						database.erase(database.begin() + i - 1);
+						break;
+					}
+				}
+			}
+			else if(by == 1){ // year
+				std::cout << "Year: ";
+				int year = get_type<int>();
+				for(int i = 0; i < database.size(); i++){
+					Media* m = database[i];
+					if(m->getYear() == year){
+						database.erase(database.begin() + i - 1);
+						break;
+					}
+				}
+			}
 		}
 		else if(strcmp(input, "PRINT") == 0){
 			for(int i = 0; i < database.size(); i++){
