@@ -173,6 +173,16 @@ int main(){
 				for(int i = 0; i < database.size(); i++){
 					Media* m = database[i];
 					if(strcmp(m->getTitle(), title) == 0){
+						Music* song = static_cast<Music*>(m);
+						VideoGame* game = static_cast<VideoGame*>(m);
+						Movie* movie = static_cast<Movie*>(m);
+
+						if(m->type == 0) song->print();
+						if(m->type == 1) game->print();
+						if(m->type == 2) movie->print();
+						std::cout  << "\n";
+
+						
 						database.erase(database.begin() + i - 1);
 						break;
 					}
@@ -184,6 +194,17 @@ int main(){
 				for(int i = 0; i < database.size(); i++){
 					Media* m = database[i];
 					if(m->getYear() == year){
+						Music* song = static_cast<Music*>(m);
+						VideoGame* game = static_cast<VideoGame*>(m);
+						Movie* movie = static_cast<Movie*>(m);
+
+						if(m->type == 0) song->print();
+						if(m->type == 1) game->print();
+						if(m->type == 2) movie->print();
+						std::cout  << "\n";
+
+
+
 						database.erase(database.begin() + i - 1);
 						break;
 					}
