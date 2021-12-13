@@ -1,5 +1,8 @@
 #include <vector>
 #include <iostream>
+#include <algorithm>
+#include <limits>
+#include <cstring>
 
 #include "Music.h"
 #include "VideoGame.h"
