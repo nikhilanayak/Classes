@@ -8,6 +8,11 @@
 #include "VideoGame.h"
 #include "Movie.h"
 
+
+void zero(char* name){
+	memset(name, 0, 256);
+}
+
 template<typename T>
 T get_type(){ // gets input of a type, ignoring all other types
         T input;
@@ -54,6 +59,7 @@ int main(){
 			if(num == 0){ // song
 				std::cout << "Title: ";
 				char* title = new char[256];
+				zero(title);
 				std::cin.getline(title, 256, '\n');
 				std::cin.ignore();
 
@@ -62,6 +68,7 @@ int main(){
 
 				std::cout << "Artist: ";
 				char* artist = new char[256];
+				zero(artist);
 				std::cin.getline(artist, 256, '\n');
 				std::cin.ignore();
 
@@ -78,6 +85,7 @@ int main(){
 			else if(num == 1){ // video game
 				std::cout << "Title: ";
 				char* title = new char[256];
+				zero(title);
 				std::cin.getline(title, 256, '\n');
 				std::cin.ignore();
 
@@ -86,6 +94,7 @@ int main(){
 
 				std::cout << "Publisher: ";
 				char* publisher = new char[256];
+				zero(publisher);
 				std::cin.getline(publisher, 256, '\n');
 				std::cin.ignore();
 
@@ -99,6 +108,7 @@ int main(){
 				// Movie(char* title, int year, char* director, int duration, int rating);
 				std::cout << "Title: ";
 				char* title = new char[256];
+				zero(title);
 				std::cin.getline(title, 256, '\n');
 				std::cin.ignore();
 
@@ -107,6 +117,7 @@ int main(){
 				
 				std::cout << "Director: ";
 				char* director = new char[256];
+				zero(director);
 				std::cin.getline(director, 256, '\n');
 				std::cin.ignore();
 
@@ -133,6 +144,7 @@ int main(){
 			if(by == 0){ // title
 				std::cout << "Title: ";
 				char title[256];
+				zero(title);
 				std::cin.getline(title, 256, '\n');
 				for(int i = 0; i < database.size(); i++){
 					Media* m = database[i];
@@ -178,6 +190,7 @@ int main(){
 			if(by == 0){ // title
 				std::cout << "Title: ";
 				char title[256];
+				zero(title);
 				std::cin.getline(title, 256, '\n');
 				for(int i = 0; i < database.size(); i++){
 					Media* m = database[i];
