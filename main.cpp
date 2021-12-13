@@ -20,11 +20,6 @@ T get_type(){ // gets input of a type, ignoring all other types
         return input;
 }
 
-
-void zero(char* a){
-	memset(a, 0, 256);
-}
-
 int main(){
 	std::vector<Media*> database;
 	//Movie test_movie = Movie("title", 2020, "me", 10, 10);
@@ -59,16 +54,16 @@ int main(){
 			if(num == 0){ // song
 				std::cout << "Title: ";
 				char* title = new char[256];
-				zero(title);
 				std::cin.getline(title, 256, '\n');
+				std::cin.ignore();
 
 				std::cout << "Year: ";
 				int year = get_type<int>();
 
 				std::cout << "Artist: ";
 				char* artist = new char[256];
-				zero(artist);
 				std::cin.getline(artist, 256, '\n');
+				std::cin.ignore();
 
 				std::cout << "Duration: ";
 				int duration = get_type<int>();
@@ -83,16 +78,16 @@ int main(){
 			else if(num == 1){ // video game
 				std::cout << "Title: ";
 				char* title = new char[256];
-				zero(title);
 				std::cin.getline(title, 256, '\n');
+				std::cin.ignore();
 
 				std::cout << "Year: ";
 				int year = get_type<int>();
 
 				std::cout << "Publisher: ";
 				char* publisher = new char[256];
-				zero(publisher);
 				std::cin.getline(publisher, 256, '\n');
+				std::cin.ignore();
 
 				std::cout << "Rating: ";
 				int rating = get_type<int>();
@@ -104,16 +99,16 @@ int main(){
 				// Movie(char* title, int year, char* director, int duration, int rating);
 				std::cout << "Title: ";
 				char* title = new char[256];
-				zero(title);
 				std::cin.getline(title, 256, '\n');
+				std::cin.ignore();
 
 				std::cout << "Year: ";
 				int year = get_type<int>();
 				
 				std::cout << "Director: ";
 				char* director = new char[256];
-				zero(director);
 				std::cin.getline(director, 256, '\n');
+				std::cin.ignore();
 
 				std::cout << "Duration: ";
 				int duration = get_type<int>();
