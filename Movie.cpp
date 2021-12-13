@@ -1,10 +1,10 @@
 #include "Movie.h"
-#include <string.h>
+#include <cstring>
 #include <iostream>
 
 Movie::Movie(char* title, int year, char* director, int duration, int rating): Media(title, year){
 	this->director = new char[strlen(director)];
-	memcpy(this->director, director, strlen(director));
+	strcpy(this->director, director);
 
 	this->duration = duration;
 	this->rating = rating;

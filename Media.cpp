@@ -1,11 +1,11 @@
 #include "Media.h"
-#include <string.h>
+#include <cstring>
 #include <iostream>
 
 
 Media::Media(char* title, int year){
 	this->title = new char[strlen(title)];
-	memcpy(this->title, title, strlen(title));
+	strcpy(this->title, title);
 	this->year = year;
 }
 

@@ -1,10 +1,10 @@
 #include "Music.h"
-#include <string.h>
+#include <cstring>
 #include <iostream>
 
 Music::Music(char* title, int year, char* artist, int duration, int rating): Media(title, year){
 	this->artist = 	new char[strlen(artist)];
-	memcpy(this->artist, artist, strlen(artist));
+	strcpy(this->artist, artist);
 
 	this->duration = duration;
 

@@ -1,10 +1,10 @@
 #include "VideoGame.h"
-#include <string.h>
+#include <cstring>
 #include <iostream>
 
 VideoGame::VideoGame(char* title, int year, char* publisher, int rating): Media(title, year){
 	this->publisher = new char[strlen(publisher)];
-	memcpy(this->publisher, publisher, strlen(publisher));
+	strcpy(this->publisher, publisher);
 
 	this->rating = rating;
 	this->type = 1;
